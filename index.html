@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Patience</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BUILD YOUR PATIENCE</h1>
+
+        <div class="controls">
+            <div class="animation-selector">
+                <label>ANIMATION:</label>
+                <button class="animation-btn active" data-animation="hourglass-v2">⏳ HOURGLASS</button>
+                <button class="animation-btn" data-animation="grass">🌱 GRASS</button>
+                <button class="animation-btn" data-animation="candle">🕯️ CANDLE</button>
+            </div>
+
+            <div class="presets">
+                <button class="preset-btn" data-target="100" data-difficulty="EASY">EASY (100)</button>
+                <button class="preset-btn active" data-target="500" data-difficulty="MEDIUM">MEDIUM (500)</button>
+                <button class="preset-btn" data-target="999" data-difficulty="HARD">HARD (999)</button>
+                <button class="preset-btn" data-target="2500" data-difficulty="EXTREME">EXTREME (2500)</button>
+            </div>
+
+            <div class="custom-input">
+                <label>CUSTOM:</label>
+                <input type="number" id="customCount" placeholder="Enter count" min="1" max="99999">
+                <button class="preset-btn" id="customBtn">SET</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" id="startBtn">START</button>
+                <button class="action-btn" id="resetBtn">RESET</button>
+            </div>
+        </div>
+
+        <div class="animation-container">
+            <canvas id="animationCanvas"></canvas>
+        </div>
+
+        <div class="bar-container">
+            <div class="bar" id="progressBar"></div>
+        </div>
+
+        <div class="counter" id="counter">0</div>
+
+        <div class="elapsed-time" id="elapsedTime">00:00</div>
+
+        <div class="message" id="message">
+            Ready to build your patience?
+        </div>
+    </div>
+
+    <script src="animations/base.js"></script>
+    <script src="animations/grass.js"></script>
+    <script src="animations/hourglass-v2.js"></script>
+    <script src="animations/candle.js"></script>
+    <script src="animations/manager.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
