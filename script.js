@@ -89,7 +89,15 @@ animationBtns.forEach(btn => {
             animationManager.update(count, targetCount);
         }
 
-        updateMessage(`${animationType.toUpperCase()} animation selected`);
+        // Map animation types to display names
+        const animationNames = {
+            'hourglass-v2': 'HOURGLASS',
+            'grass': 'GRASS',
+            'candle': 'CANDLE'
+        };
+
+        const displayName = animationNames[animationType] || animationType.toUpperCase();
+        updateMessage(`${displayName} animation selected`);
     });
 });
 
