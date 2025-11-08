@@ -15,6 +15,7 @@ const customInput = document.getElementById('customCount');
 const customBtn = document.getElementById('customBtn');
 const presetBtns = document.querySelectorAll('.preset-btn[data-target]');
 const animationBtns = document.querySelectorAll('.animation-btn[data-animation]');
+const themeToggle = document.getElementById('themeToggle');
 
 // Initialize animation manager after DOM is loaded
 let animationManager;
@@ -190,3 +191,28 @@ function updateElapsedTime() {
 function updateMessage(text) {
     message.innerHTML = text;
 }
+
+// Theme toggle functionality
+function initializeTheme() {
+    // Check for saved theme preference or default to light mode
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '☀️ LIGHT';
+    }
+}
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    if (document.body.classList.contains('dark-mode')) {
+        themeToggle.innerHTML = '☀️ LIGHT';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeToggle.innerHTML = '🌙 DARK';
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Initialize theme on page load
+initializeTheme();

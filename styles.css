@@ -4,15 +4,56 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Light mode colors (default) */
+    --bg-primary: #f5f5f0;
+    --bg-secondary: #e8e8dc;
+    --bg-tertiary: #e0e0d8;
+    --bg-quaternary: #d0d0c8;
+    --bg-input: #fff;
+    --text-primary: #666;
+    --text-secondary: #888;
+    --text-tertiary: #999;
+    --text-light: #bbb;
+    --border-primary: #d0d0c8;
+    --border-secondary: #c0c0b8;
+    --bar-bg: #e0e0d8;
+    --bar-fill: #999;
+    --button-bg: #999;
+    --button-hover: #888;
+    --button-disabled: #ccc;
+}
+
+body.dark-mode {
+    /* Dark mode colors */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #252525;
+    --bg-tertiary: #2a2a2a;
+    --bg-quaternary: #333;
+    --bg-input: #1f1f1f;
+    --text-primary: #bbb;
+    --text-secondary: #aaa;
+    --text-tertiary: #999;
+    --text-light: #777;
+    --border-primary: #444;
+    --border-secondary: #555;
+    --bar-bg: #333;
+    --bar-fill: #888;
+    --button-bg: #666;
+    --button-hover: #777;
+    --button-disabled: #444;
+}
+
 body {
     font-family: 'Courier New', monospace;
-    background: #f5f5f0;
-    color: #666;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    transition: background 0.3s, color 0.3s;
 }
 
 .container {
@@ -30,41 +71,45 @@ h1 {
 .bar-container {
     width: 100%;
     height: 4px;
-    background: #e0e0d8;
+    background: var(--bar-bg);
     margin: 60px 0;
     position: relative;
     overflow: hidden;
+    transition: background 0.3s;
 }
 
 .bar {
     height: 100%;
-    background: #999;
+    background: var(--bar-fill);
     width: 0%;
-    transition: width 0.1s linear;
+    transition: width 0.1s linear, background 0.3s;
 }
 
 .counter {
     font-size: 56px;
-    color: #888;
+    color: var(--text-secondary);
     margin: 40px 0 10px 0;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 .elapsed-time {
     font-size: 13px;
-    color: #bbb;
+    color: var(--text-light);
     margin: 0 0 30px 0;
     font-weight: 400;
     letter-spacing: 1px;
     opacity: 0.6;
+    transition: color 0.3s;
 }
 
 .message {
     font-size: 16px;
     line-height: 1.8;
-    color: #999;
+    color: var(--text-tertiary);
     margin-top: 40px;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 .controls {
@@ -85,32 +130,33 @@ h1 {
 
 .animation-selector label {
     font-size: 14px;
-    color: #999;
+    color: var(--text-tertiary);
     letter-spacing: 1px;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 .animation-btn {
     padding: 8px 16px;
-    background: #e0e0d8;
-    border: 2px solid #d0d0c8;
-    color: #666;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-primary);
+    color: var(--text-primary);
     font-family: 'Courier New', monospace;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 1px;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
 .animation-btn:hover {
-    background: #d0d0c8;
-    border-color: #c0c0b8;
+    background: var(--bg-quaternary);
+    border-color: var(--border-secondary);
 }
 
 .animation-btn.active {
-    background: #999;
-    border-color: #888;
+    background: var(--button-bg);
+    border-color: var(--button-hover);
     color: #fff;
 }
 
@@ -119,10 +165,11 @@ h1 {
     width: 100%;
     height: 300px;
     margin: 40px 0;
-    background: #e8e8dc;
-    border: 2px solid #d0d0c8;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-primary);
     border-radius: 4px;
     overflow: hidden;
+    transition: background 0.3s, border-color 0.3s;
 }
 
 #animationCanvas {
@@ -143,25 +190,25 @@ h1 {
 
 .preset-btn {
     padding: 10px 20px;
-    background: #e0e0d8;
-    border: 2px solid #d0d0c8;
-    color: #666;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-primary);
+    color: var(--text-primary);
     font-family: 'Courier New', monospace;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 1px;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
 .preset-btn:hover {
-    background: #d0d0c8;
-    border-color: #c0c0b8;
+    background: var(--bg-quaternary);
+    border-color: var(--border-secondary);
 }
 
 .preset-btn.active {
-    background: #999;
-    border-color: #888;
+    background: var(--button-bg);
+    border-color: var(--button-hover);
     color: #fff;
 }
 
@@ -174,25 +221,27 @@ h1 {
 
 .custom-input label {
     font-size: 14px;
-    color: #999;
+    color: var(--text-tertiary);
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 .custom-input input {
     width: 100px;
     padding: 8px;
-    background: #fff;
-    border: 2px solid #d0d0c8;
-    color: #666;
+    background: var(--bg-input);
+    border: 2px solid var(--border-primary);
+    color: var(--text-primary);
     font-family: 'Courier New', monospace;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
+    transition: all 0.3s;
 }
 
 .custom-input input:focus {
     outline: none;
-    border-color: #999;
+    border-color: var(--button-bg);
 }
 
 .action-buttons {
@@ -203,7 +252,7 @@ h1 {
 
 .action-btn {
     padding: 12px 30px;
-    background: #999;
+    background: var(--button-bg);
     border: none;
     color: #fff;
     font-family: 'Courier New', monospace;
@@ -211,15 +260,15 @@ h1 {
     font-weight: 600;
     cursor: pointer;
     letter-spacing: 2px;
-    transition: background 0.2s;
+    transition: all 0.3s;
 }
 
 .action-btn:hover {
-    background: #888;
+    background: var(--button-hover);
 }
 
 .action-btn:disabled {
-    background: #ccc;
+    background: var(--button-disabled);
     cursor: not-allowed;
 }
 
@@ -231,4 +280,28 @@ h1 {
 @keyframes blink {
     0%, 100% { opacity: 0; }
     50% { opacity: 1; }
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-primary);
+    color: var(--text-primary);
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    background: var(--bg-quaternary);
+    border-color: var(--border-secondary);
+    transform: scale(1.05);
 }
