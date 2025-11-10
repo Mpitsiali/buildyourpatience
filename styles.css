@@ -305,3 +305,57 @@ h1 {
     border-color: var(--border-secondary);
     transform: scale(1.05);
 }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    body {
+        padding: 60px 15px 20px 15px; /* Extra top padding for theme button */
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 18px;
+        margin-bottom: 30px;
+        letter-spacing: 1.5px;
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .counter {
+        font-size: 42px;
+    }
+
+    .animation-container {
+        height: 250px;
+        margin: 30px 0;
+    }
+
+    .animation-selector,
+    .presets {
+        gap: 8px;
+    }
+
+    .animation-btn,
+    .preset-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .action-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .custom-input {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
